@@ -10,7 +10,7 @@ if pd.read_pickle('lastsave.pkl').strftime("%Y-%m-%d") != datetime.today().strft
     pd.to_pickle(datetime.today(), 'lastsave.pkl')
 
 data = pd.read_pickle('scraped_bowler_data.pkl')
-
+        
 # Streamlit App
 
 date1 = pd.to_datetime(st.sidebar.date_input("Start Date", data.date.min()))
@@ -75,22 +75,22 @@ filmet_col1, filmet_col2, filmet_col3, filmet_col4 = st.columns(4)
 filmet_col1.metric(
     label='Filtered Average', 
     value=average_filtered, 
-    delta=f"{round(average_filtered - average, 1)} pins"
+    delta=f"{round(average_filtered - average, 1).astype('float')} pins"
 )
 filmet_col2.metric(
     label = 'Total Games',
     value = total_games_filtered,
-    delta = f"{total_games_filtered - total_games} games"
+    delta = total_games_filtered - total_games
 )
 filmet_col3.metric(
     label = 'High Series',
     value = high_series_filtered,
-    delta = f"{high_series_filtered - high_series}"
+    delta = f"{round(high_series_filtered - high_series, 0).astype('float')} pins"
 )
 filmet_col4.metric(
     label = 'High Game',
     value = high_game_filtered,
-    delta = high_game_filtered - high_game
+    delta = f"{round(high_game_filtered - high_game, 0).astype('float')} pins"
 )
 
 st.header("", divider='blue')
