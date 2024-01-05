@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
-import bs4
 
 def get_bowler_data(bowler_name = "scott-thomas"):
 
