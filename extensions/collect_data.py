@@ -11,7 +11,7 @@ def get_bowler_data(bowler_name = "scott-thomas"):
     for year in years:
         url = f"https://www.leaguesecretary.com/bowling-centers/harbor-lanes-saint-clair-shores-michigan/bowling-leagues/lochmoor-men-2324/bowler-info/scott-thomas/{year}/fall/117119/60"
 
-        html = pd.read_html(url, flavor = 'html5lib')
+        html = pd.read_html(url, flavor = 'lxml')
         
         df = pd.DataFrame(np.array([html])[0,0,:-1,:6],
         columns=['week', 'date', 'game1', 'game2', 'game3', 'total']
