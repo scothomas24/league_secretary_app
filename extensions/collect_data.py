@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import lxml
 from datetime import datetime, timedelta
 
 def get_bowler_data(bowler_name = "scott-thomas"):
