@@ -1,6 +1,5 @@
 numpy
 pandas
-html5lib
 datetime
 altair
 bs4
